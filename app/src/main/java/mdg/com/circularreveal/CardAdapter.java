@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -62,15 +61,14 @@ public class CardAdapter extends android.support.v7.widget.RecyclerView.Adapter<
         return textList.size();
     }
 
-    public void CircularRevealEffect(){
+    void CircularRevealEffect(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // get the center for the clipping circle
             int cx = cardParent.getWidth() / 2;
             int cy = cardParent.getHeight() / 2;
 
             float finalRadius = (float) Math.hypot(cx, cy);
-            Animator anim =
-                    ViewAnimationUtils.createCircularReveal(cardParent, cx, cy, 0, finalRadius);
+            Animator anim = ViewAnimationUtils.createCircularReveal(cardParent, cx, cy, 0, finalRadius);
 
             // make the view visible and start the animation
             cardParent.setVisibility(View.VISIBLE);
@@ -78,5 +76,7 @@ public class CardAdapter extends android.support.v7.widget.RecyclerView.Adapter<
         } else {
             // set the view to visible without a circular reveal animation below Lollipop
             cardParent.setVisibility(View.VISIBLE);
-        }    }
+        }
+    }
+
 }

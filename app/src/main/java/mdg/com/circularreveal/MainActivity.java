@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
         //getting the recyclerview from xml
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //initializing the productlist
         textList = new ArrayList<>();
 
-        textList.add(new ModelClass("Card 1"));
+        textList.add(new ModelClass("Card"));
 
         adapter = new CardAdapter(this, textList);
         recyclerView.setAdapter(adapter);
